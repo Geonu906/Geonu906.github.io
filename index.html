@@ -1,221 +1,494 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daniel Carter — Architect Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg: #f8f8f6;
-      --text: #1a1a1a;
-      --accent: #8c7a6b;     /* 건축적인 따뜻한 톤 */
-      --gray: #666;
-      --lightgray: #ddd;
-    }
-    
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
-    
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; }
-    
-    /* Header / Hero */
-    header {
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=1600&q=80') center/cover no-repeat;
-      color: white;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-    }
-    .hero-content h1 { font-size: clamp(3.5rem, 8vw, 9rem); margin-bottom: 1rem; letter-spacing: -2px; }
-    .hero-content p { font-size: 1.4rem; max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.9; }
-    
-    /* About */
-    #about { padding: 12vh 0; text-align: center; }
-    #about .container { max-width: 800px; }
-    #about h2 { font-size: 3.2rem; margin-bottom: 1.5rem; }
-    #about p { font-size: 1.15rem; color: var(--gray); }
-    
-    /* Projects */
-    #projects { padding: 10vh 0; background: white; }
-    .section-title { text-align: center; font-size: 3rem; margin-bottom: 6vh; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 3rem;
-    }
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .project-card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-    .project-card img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-    .project-card:hover img { transform: scale(1.08); }
-    .info {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.75));
-      color: white;
-      padding: 2.5rem 2rem 1.5rem;
-      transform: translateY(40%);
-      transition: transform 0.4s ease;
-    }
-    .project-card:hover .info { transform: translateY(0); }
-    .info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
-    .info p { font-size: 1rem; opacity: 0.9; }
-    
-    /* Contact */
-    #contact { padding: 12vh 0; text-align: center; background: var(--bg); }
-    #contact h2 { font-size: 3rem; margin-bottom: 2rem; }
-    .social { margin-top: 3rem; font-size: 1.3rem; }
-    .social a { color: var(--text); margin: 0 1.2rem; text-decoration: none; }
-    .social a:hover { color: var(--accent); }
-    
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      color: var(--gray);
-      font-size: 0.95rem;
-      border-top: 1px solid var(--lightgray);
-    }
-    
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: clamp(3rem, 12vw, 6rem); }
-      .grid { gap: 2.5rem; }
-      .project-card img { height: 360px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이준호 건축가 | 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        
+        :root {
+            --primary: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', system-ui, sans-serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        
+        .modal {
+            animation: modalPop 0.3s ease-out forwards;
+        }
+        
+        @keyframes modalPop {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .gallery-img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d97706;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-white">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 bg-zinc-950/90 backdrop-blur-md z-50 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">이</div>
+                <div>
+                    <h1 class="text-2xl font-semibold tracking-tighter">이준호</h1>
+                    <p class="text-[10px] text-zinc-400 -mt-1">ARCHITECT</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="nav-link">HOME</a>
+                <a href="#projects" class="nav-link">PROJECTS</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </div>
+            
+            <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                    class="px-6 py-3 bg-amber-600 hover:bg-amber-700 transition-colors rounded-full text-sm font-medium flex items-center gap-2">
+                <i class="fas fa-envelope"></i>
+                문의하기
+            </button>
+        </div>
+    </nav>
 
-  <header>
-    <div class="hero-content">
-      <h1>Daniel Carter</h1>
-      <p>Architect & Spatial Designer — Osaka based</p>
+    <!-- HERO -->
+    <section id="home" class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm mb-6">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                SEOUL BASED ARCHITECT
+            </div>
+            <h2 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-4">
+                공간을<br>이야기로 만들다
+            </h2>
+            <p class="text-xl text-zinc-300 max-w-md mx-auto mb-10">
+                자연과 사람, 미래가 조화되는 건축을 추구합니다
+            </p>
+            <a href="#projects" 
+               class="inline-flex items-center gap-3 bg-white text-zinc-950 px-8 py-4 rounded-full font-medium text-lg hover:bg-amber-600 hover:text-white transition-all">
+                프로젝트 보기
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
+            <p class="text-xs tracking-widest mb-2">SCROLL</p>
+            <i class="fas fa-chevron-down animate-bounce text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-amber-600 text-sm font-medium tracking-widest">03 SELECTED WORKS</span>
+                    <h2 class="text-5xl font-bold tracking-tighter">대표 프로젝트</h2>
+                </div>
+                <p class="max-w-xs text-zinc-400 text-sm hidden md:block">
+                    각 프로젝트는 외관 설계와 인테리어 형성까지<br>완전하게 보여드립니다.
+                </p>
+            </div>
+            
+            <!-- PROJECT GRID -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- PROJECT 1 -->
+                <div onclick="openModal(1)" class="project-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/1015/800/600" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="산속 별장 외관">
+                        <div class="absolute top-6 left-6 bg-black/70 px-4 py-1 rounded-full text-xs font-medium">2024</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-semibold mb-2">산속의 빛나는 별장</h3>
+                        <p class="text-zinc-400 mb-6">강원도 평창 · 주거 건축</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-amber-600">외관 + 인테리어</span>
+                            <span class="text-zinc-500 group-hover:text-amber-600 transition-colors">자세히 보기 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div onclick="openModal(2)" class="project-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/160/800/600" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="도시 오피스 외관">
+                        <div class="absolute top-6 left-6 bg-black/70 px-4 py-1 rounded-full text-xs font-medium">2023</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-semibold mb-2">도심 속 미래 오피스</h3>
+                        <p class="text-zinc-400 mb-6">서울 강남 · 상업 건축</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-amber-600">외관 + 인테리어</span>
+                            <span class="text-zinc-500 group-hover:text-amber-600 transition-colors">자세히 보기 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div onclick="openModal(3)" class="project-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/318/800/600" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="친환경 주택 외관">
+                        <div class="absolute top-6 left-6 bg-black/70 px-4 py-1 rounded-full text-xs font-medium">2025</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-semibold mb-2">숲속 친환경 주택</h3>
+                        <p class="text-zinc-400 mb-6">제주도 · 지속가능 주거</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-amber-600">외관 + 인테리어</span>
+                            <span class="text-zinc-500 group-hover:text-amber-600 transition-colors">자세히 보기 →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <img src="https://picsum.photos/id/1005/800/1000" 
+                     class="w-full rounded-3xl shadow-2xl" alt="건축가 프로필">
+            </div>
+            <div class="space-y-8">
+                <div class="text-amber-600 text-sm font-medium">ABOUT ARCHITECT</div>
+                <h2 class="text-5xl font-bold tracking-tighter leading-none">이준호</h2>
+                <p class="text-lg text-zinc-300">
+                    15년 이상의 경험을 바탕으로 최소주의와 자연의 조화를 추구하는 건축가입니다. 
+                    서울을 기반으로 국내외 다양한 프로젝트를 진행하며, 공간이 사람의 삶을 어떻게 풍요롭게 하는지에 집중합니다.
+                </p>
+                <div class="grid grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold text-amber-600">28</div>
+                        <div class="text-xs text-zinc-500 mt-1">COMPLETED PROJECTS</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-amber-600">12</div>
+                        <div class="text-xs text-zinc-500 mt-1">INTERNATIONAL AWARDS</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-amber-600">7</div>
+                        <div class="text-xs text-zinc-500 mt-1">COUNTRIES</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <!-- Modal 1 -->
+    <div id="modal1" onclick="if(event.target.id==='modal1') closeModal(1)" 
+         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-zinc-900 max-w-6xl w-full rounded-3xl overflow-hidden max-h-[92vh] overflow-y-auto">
+            
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-zinc-900 border-b border-zinc-800 px-8 py-6 flex justify-between items-center z-10">
+                <div>
+                    <h3 class="text-3xl font-semibold">산속의 빛나는 별장</h3>
+                    <p class="text-amber-600 text-sm">2024 • 강원도 평창 • 주거</p>
+                </div>
+                <button onclick="closeModal(1)" 
+                        class="w-12 h-12 flex items-center justify-center text-3xl hover:text-amber-600 transition-colors">×</button>
+            </div>
+            
+            <div class="p-8 md:p-12 space-y-12">
+                <!-- Description -->
+                <div class="grid md:grid-cols-5 gap-12">
+                    <div class="md:col-span-3">
+                        <img src="https://picsum.photos/id/1015/1200/800" 
+                             class="w-full rounded-2xl shadow-xl" alt="산속 별장 외관">
+                    </div>
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <span class="uppercase text-xs tracking-widest text-zinc-500">Concept</span>
+                            <h4 class="text-2xl font-medium mt-2">자연과 하나 되는 집</h4>
+                        </div>
+                        <p class="text-zinc-400 leading-relaxed">
+                            산자락에 자리한 이 별장은 주변 지형과 완전히 융합되도록 설계되었습니다. 
+                            거대한 유리창을 통해 숲의 풍경이 실내로 스며들며, 외관은 현지 석재와 목재를 사용해 자연스러운 조화를 이룹니다.
+                        </p>
+                        <div class="flex gap-6 text-sm">
+                            <div>
+                                <div class="font-medium">면적</div>
+                                <div class="text-2xl font-semibold text-amber-600">285㎡</div>
+                            </div>
+                            <div>
+                                <div class="font-medium">구조</div>
+                                <div class="text-2xl font-semibold text-amber-600">3층</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Section -->
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                        <span class="uppercase text-amber-600 text-sm font-medium tracking-widest">인테리어 형성</span>
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Interior 1 -->
+                        <div class="group">
+                            <img src="https://picsum.photos/id/201/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="거실 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">거실 • 개방감 있는 천장과 통유리</p>
+                        </div>
+                        <!-- Interior 2 -->
+                        <div class="group">
+                            <img src="https://picsum.photos/id/29/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="침실 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">마스터 침실 • 자연광과 목재 마감</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <section id="about">
-    <div class="container">
-      <h2>About</h2>
-      <p>오사카를 기반으로 활동하는 건축 디자이너입니다. 지속가능한 공간, 도시 재생, 주거·상업 복합 프로젝트를 중심으로 작업하며, 스케치에서 렌더링까지的全 과정을 직접 진행합니다. 2018년부터 프리랜서 및 소규모 스튜디오 경험을 쌓아왔습니다.</p>
+    <!-- Modal 2 -->
+    <div id="modal2" onclick="if(event.target.id==='modal2') closeModal(2)" 
+         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-zinc-900 max-w-6xl w-full rounded-3xl overflow-hidden max-h-[92vh] overflow-y-auto">
+            
+            <div class="sticky top-0 bg-zinc-900 border-b border-zinc-800 px-8 py-6 flex justify-between items-center z-10">
+                <div>
+                    <h3 class="text-3xl font-semibold">도심 속 미래 오피스</h3>
+                    <p class="text-amber-600 text-sm">2023 • 서울 강남 • 상업</p>
+                </div>
+                <button onclick="closeModal(2)" 
+                        class="w-12 h-12 flex items-center justify-center text-3xl hover:text-amber-600 transition-colors">×</button>
+            </div>
+            
+            <div class="p-8 md:p-12 space-y-12">
+                <div class="grid md:grid-cols-5 gap-12">
+                    <div class="md:col-span-3">
+                        <img src="https://picsum.photos/id/160/1200/800" 
+                             class="w-full rounded-2xl shadow-xl" alt="도시 오피스 외관">
+                    </div>
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <span class="uppercase text-xs tracking-widest text-zinc-500">Concept</span>
+                            <h4 class="text-2xl font-medium mt-2">지속가능한 수직 정원</h4>
+                        </div>
+                        <p class="text-zinc-400 leading-relaxed">
+                            강남의 스카이라인에 새로운 기준을 제시하는 오피스 빌딩입니다. 
+                            외벽 전체를 녹지로 감싸고, 내부는 자연광이 가득한 개방형 사무 공간으로 설계되었습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                        <span class="uppercase text-amber-600 text-sm font-medium tracking-widest">인테리어 형성</span>
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group">
+                            <img src="https://picsum.photos/id/201/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="로비 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">로비 • 수직 정원과 빛의 조화</p>
+                        </div>
+                        <div class="group">
+                            <img src="https://picsum.photos/id/318/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="회의실 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">회의실 • 모던 미니멀 디자인</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="projects">
-  <div class="container">
-    <h2 class="section-title">선정 프로젝트</h2>
-    <div class="grid">
+    <!-- Modal 3 -->
+    <div id="modal3" onclick="if(event.target.id==='modal3') closeModal(3)" 
+         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-zinc-900 max-w-6xl w-full rounded-3xl overflow-hidden max-h-[92vh] overflow-y-auto">
+            
+            <div class="sticky top-0 bg-zinc-900 border-b border-zinc-800 px-8 py-6 flex justify-between items-center z-10">
+                <div>
+                    <h3 class="text-3xl font-semibold">숲속 친환경 주택</h3>
+                    <p class="text-amber-600 text-sm">2025 • 제주도 • 주거</p>
+                </div>
+                <button onclick="closeModal(3)" 
+                        class="w-12 h-12 flex items-center justify-center text-3xl hover:text-amber-600 transition-colors">×</button>
+            </div>
+            
+            <div class="p-8 md:p-12 space-y-12">
+                <div class="grid md:grid-cols-5 gap-12">
+                    <div class="md:col-span-3">
+                        <img src="https://picsum.photos/id/318/1200/800" 
+                             class="w-full rounded-2xl shadow-xl" alt="친환경 주택 외관">
+                    </div>
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <span class="uppercase text-xs tracking-widest text-zinc-500">Concept</span>
+                            <h4 class="text-2xl font-medium mt-2">지구와 숨쉬는 집</h4>
+                        </div>
+                        <p class="text-zinc-400 leading-relaxed">
+                            제주의 청정 자연 속에 자리한 제로 에너지 주택입니다. 
+                            태양광, 빗물 재활용, 자연 환기 시스템을 통해 완전한 친환경 생활을 실현합니다.
+                        </p>
+                    </div>
+                </div>
 
-      <!-- 프로젝트 1: 도심 주거 복합단지 (서울 스타일 고층 아파트 단지) -->
-      <a href="#" class="project-card">
-        <img src="https://design.co.kr/wp-content/uploads/2025/09/1-2-832x555.jpg" alt="서울 도심 주거 복합단지" loading="lazy">
-        <div class="info">
-          <h3>서울 도심 주거 복합단지</h3>
-          <p>2024 — 서울 강남구<br>고밀도 주거 + 커뮤니티 시설 + 그린 루프 설계</p>
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                        <span class="uppercase text-amber-600 text-sm font-medium tracking-widest">인테리어 형성</span>
+                        <div class="h-px flex-1 bg-zinc-700"></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group">
+                            <img src="https://picsum.photos/id/29/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="주방 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">주방 • 천연 소재와 따뜻한 조명</p>
+                        </div>
+                        <div class="group">
+                            <img src="https://picsum.photos/id/201/800/600" 
+                                 class="gallery-img w-full rounded-2xl" alt="거실 인테리어">
+                            <p class="mt-4 text-sm text-zinc-400">거실 • 통창으로 들어오는 제주 바다</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </a>
-
-      <!-- 프로젝트 2: 미니멀 단독주택 (한국 하이엔드 레지던스) -->
-      <a href="#" class="project-card">
-        <img src="https://i.ytimg.com/vi/ZkIs4_SrTqw/maxresdefault.jpg" alt="경기 고급 단독주택" loading="lazy">
-        <div class="info">
-          <h3>경기 프리미엄 단독주택</h3>
-          <p>2023 — 성남 분당 근교<br>현대적 미니멀 디자인, 자연 채광과 프라이버시 강조</p>
-        </div>
-      </a>
-
-      <!-- 프로젝트 3: 상업 시설 리노베이션 (서울 도심 상업 빌딩) -->
-      <a href="#" class="project-card">
-        <img src="https://storage.heypop.kr/assets/2023/09/20152431/%EA%B7%B8%EB%A6%BC2.png" alt="서울 상업 빌딩 리노베이션" loading="lazy">
-        <div class="info">
-          <h3>서울 상업 빌딩 리노베이션</h3>
-          <p>2025 — 서울 종로구<br>기존 건물의 현대적 재해석 및 지속가능 요소 도입</p>
-        </div>
-      </a>
-
-      <!-- 프로젝트 4: 친환경 사무 빌딩 (한국 그린 오피스) -->
-      <a href="#" class="project-card">
-        <img src="https://villiv.co.kr/data/2022/08/2022-08-09_12-47-49-58157-1660016869.jpg" alt="서울 친환경 사무 빌딩" loading="lazy">
-        <div class="info">
-          <h3>친환경 사무 빌딩</h3>
-          <p>2024 — 서울 여의도<br>그린 파사드, 자연 환기 시스템, 태양광 패널 통합 설계</p>
-        </div>
-      </a>
-
-      <!-- 프로젝트 5: 문화 복합 센터 (한국 공공 문화 시설) -->
-      <a href="#" class="project-card">
-        <img src="http://image.yes24.com/blogimage/blog/o/n/onlyjy0319/hoTCdaLe.jpg" alt="부산 문화 복합 센터" loading="lazy">
-        <div class="info">
-          <h3>부산 문화 복합 센터</h3>
-          <p>2022 — 부산 해운대<br>지역 주민 참여형 공공 공간, 곡선적 형태의 현대 건축</p>
-        </div>
-      </a>
-
-      <!-- 프로젝트 6: 프라이빗 레지던스 (한국 한옥 현대 재해석) -->
-      <a href="#" class="project-card">
-        <img src="https://cdn.imwood.co.kr/news/photo/202012/25210_46719_3427.jpg" alt="서울 프라이빗 한옥 레지던스" loading="lazy">
-        <div class="info">
-          <h3>한옥 현대 재해석 레지던스</h3>
-          <p>2023 — 서울 용산구<br>전통 한옥 요소와 현대적 공간감의 조화, 목재 중심 설계</p>
-        </div>
-      </a>
-
     </div>
-  </div>
-</section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Get in Touch</h2>
-      <p>프로젝트 문의 / 협업 제안 환영합니다.</p>
-      <p style="margin:1.5rem 0; font-size:1.2rem;">
-        <a href="mailto:daniel@example.com">daniel@example.com</a>
-      </p>
-      <div class="social">
-        <a href="#">Instagram</a> •
-        <a href="#">Behance</a> •
-        <a href="#">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-black">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold tracking-tighter mb-4">함께 공간을 만들까요?</h2>
+            <p class="text-zinc-400 mb-12">프로젝트 문의나 협업 제안은 언제든 환영합니다.</p>
+            
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="이름" 
+                           class="bg-zinc-900 border border-zinc-700 focus:border-amber-600 px-6 py-5 rounded-2xl outline-none">
+                    <input type="email" placeholder="이메일" 
+                           class="bg-zinc-900 border border-zinc-700 focus:border-amber-600 px-6 py-5 rounded-2xl outline-none">
+                </div>
+                <textarea placeholder="프로젝트 내용" rows="5"
+                          class="w-full bg-zinc-900 border border-zinc-700 focus:border-amber-600 px-6 py-5 rounded-2xl outline-none resize-none"></textarea>
+                <button type="button" 
+                        class="w-full py-6 bg-amber-600 hover:bg-amber-700 text-lg font-medium rounded-2xl transition-colors">
+                    보내기
+                </button>
+            </form>
+            
+            <div class="mt-16 text-xs text-zinc-500 flex justify-center gap-8">
+                <a href="#" class="hover:text-white">Instagram</a>
+                <a href="#" class="hover:text-white">Behance</a>
+                <a href="#" class="hover:text-white">LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2026 Daniel Carter. All rights reserved.
-  </footer>
+    <footer class="bg-zinc-950 py-8 text-center text-xs text-zinc-500 border-t border-zinc-800">
+        © 2026 이준호 건축가. All rights reserved.
+    </footer>
 
+    <script>
+        // Tailwind script already loaded via CDN
+        function openModal(n) {
+            const modal = document.getElementById('modal' + n);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(n) {
+            const modal = document.getElementById('modal' + n);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'visible';
+        }
+        
+        // Keyboard escape support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const openModals = document.querySelectorAll('.fixed.inset-0.flex');
+                openModals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        const id = modal.id.replace('modal', '');
+                        closeModal(id);
+                    }
+                });
+            }
+        });
+        
+        // Tailwind init
+        function initTailwind() {
+            // Already initialized via CDN
+        }
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Ready
+        console.log('%c✅ 이준호 건축가 포트폴리오 사이트가 준비되었습니다!', 'color:#d97706; font-weight:bold');
+    </script>
 </body>
 </html>
