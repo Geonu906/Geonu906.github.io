@@ -1,102 +1,193 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architect Portfolio | OOO</title>
-    <style>
-        /* 기본 스타일: 미니멀 & 모던 */
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.5; color: #1a1a1a; margin: 0; padding: 0; background: #fff; }
-        .wrapper { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-
-        /* 헤더: 이름 및 소개 */
-        header { margin-bottom: 100px; }
-        h1 { font-size: 28px; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
-        .intro { font-size: 16px; color: #555; max-width: 700px; word-break: keep-all; }
-        .contact { margin-top: 20px; font-size: 14px; font-weight: 500; }
-
-        /* 프로젝트 그리드 */
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 30px; margin-bottom: 120px; }
-        .item { text-decoration: none; color: inherit; transition: 0.3s; }
-        .item:hover .img-box { opacity: 0.85; }
-        
-        .img-box { width: 100%; aspect-ratio: 16 / 10; background: #f0f0f0; overflow: hidden; margin-bottom: 15px; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .info .title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-        .info .meta { font-size: 14px; color: #888; }
-
-        /* 경력 요약 섹션 */
-        .experience { border-top: 1px solid #eee; padding-top: 60px; }
-        .ex-item { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 15px; }
-        .ex-company { font-weight: 700; width: 40%; }
-        .ex-role { color: #666; width: 40%; }
-        .ex-date { text-align: right; color: #999; width: 20%; }
-
-        /* 모바일 대응 */
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            .ex-item { flex-direction: column; gap: 5px; margin-bottom: 35px; }
-            .ex-company, .ex-role, .ex-date { width: 100%; text-align: left; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daniel Carter — Architect Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #f8f8f6;
+      --text: #1a1a1a;
+      --accent: #8c7a6b;     /* 건축적인 따뜻한 톤 */
+      --gray: #666;
+      --lightgray: #ddd;
+    }
+    
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+    
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; }
+    
+    /* Header / Hero */
+    header {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=1600&q=80') center/cover no-repeat;
+      color: white;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    .hero-content h1 { font-size: clamp(3.5rem, 8vw, 9rem); margin-bottom: 1rem; letter-spacing: -2px; }
+    .hero-content p { font-size: 1.4rem; max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.9; }
+    
+    /* About */
+    #about { padding: 12vh 0; text-align: center; }
+    #about .container { max-width: 800px; }
+    #about h2 { font-size: 3.2rem; margin-bottom: 1.5rem; }
+    #about p { font-size: 1.15rem; color: var(--gray); }
+    
+    /* Projects */
+    #projects { padding: 10vh 0; background: white; }
+    .section-title { text-align: center; font-size: 3rem; margin-bottom: 6vh; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 3rem;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .project-card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+    .project-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .project-card:hover img { transform: scale(1.08); }
+    .info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: white;
+      padding: 2.5rem 2rem 1.5rem;
+      transform: translateY(40%);
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .info { transform: translateY(0); }
+    .info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .info p { font-size: 1rem; opacity: 0.9; }
+    
+    /* Contact */
+    #contact { padding: 12vh 0; text-align: center; background: var(--bg); }
+    #contact h2 { font-size: 3rem; margin-bottom: 2rem; }
+    .social { margin-top: 3rem; font-size: 1.3rem; }
+    .social a { color: var(--text); margin: 0 1.2rem; text-decoration: none; }
+    .social a:hover { color: var(--accent); }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--gray);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--lightgray);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: clamp(3rem, 12vw, 6rem); }
+      .grid { gap: 2.5rem; }
+      .project-card img { height: 360px; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1>ARCHITECT OOO</h1>
-            <p class="intro">
-                여러 건축사사무소에서 재직하며 기획 단계부터 현장 감리까지 프로젝트의 전 과정을 관통하는 실무적 통찰을 쌓아왔습니다. 
-                단순한 구축을 넘어 대지의 맥락과 사용자의 삶을 잇는 공간의 서사를 추구합니다.
-            </p>
-            <div class="contact">T. 010-0000-0000 | E. email@address.com</div>
-        </header>
-
-        <!-- 프로젝트 리스트 -->
-        <div class="grid">
-            <!-- 프로젝트 1 -->
-            <a href="#" class="item">
-                <div class="img-box">
-                    <img src="project1.jpg" alt="프로젝트 이미지"> <!-- 실제 이미지 경로로 수정 -->
-                </div>
-                <div class="info">
-                    <div class="title">Urban Archive Complex</div>
-                    <div class="meta">2023 | 실시설계 및 인허가 총괄</div>
-                </div>
-            </a>
-
-            <!-- 프로젝트 2 -->
-            <a href="#" class="item">
-                <div class="img-box">
-                    <img src="project2.jpg" alt="프로젝트 이미지">
-                </div>
-                <div class="info">
-                    <div class="title">Seaside Private Villa</div>
-                    <div class="meta">2022 | 계획 및 기본설계</div>
-                </div>
-            </a>
-            
-            <!-- 추가 프로젝트들을 동일한 형식으로 나열 -->
-        </div>
-
-        <!-- 경력 사항 (경력직의 핵심) -->
-        <section class="experience">
-            <h2 style="font-size: 20px; margin-bottom: 40px;">Selected Experience</h2>
-            
-            <div class="ex-item">
-                <div class="ex-company">OO건축사사무소 (현)</div>
-                <div class="ex-role">팀장 / 주거 및 상업시설 설계 총괄</div>
-                <div class="ex-date">2021 — Present</div>
-            </div>
-
-            <div class="ex-item">
-                <div class="ex-company">AA 아키텍츠</div>
-                <div class="ex-role">대리 / 공공 건축물 현상설계 및 실시설계</div>
-                <div class="ex-date">2018 — 2021</div>
-            </div>
-        </section>
+  <header>
+    <div class="hero-content">
+      <h1>Daniel Carter</h1>
+      <p>Architect & Spatial Designer — Osaka based</p>
     </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <p>오사카를 기반으로 활동하는 건축 디자이너입니다. 지속가능한 공간, 도시 재생, 주거·상업 복합 프로젝트를 중심으로 작업하며, 스케치에서 렌더링까지的全 과정을 직접 진행합니다. 2018년부터 프리랜서 및 소규모 스튜디오 경험을 쌓아왔습니다.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid">
+
+        <a href="#" class="project-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85&fm=webp" alt="Project 1" loading="lazy">
+          <div class="info">
+            <h3>Urban Housing Complex</h3>
+            <p>2024 — Osaka, Japan</p>
+          </div>
+        </a>
+
+        <a href="#" class="project-card">
+          <img src="https://images.unsplash.com/photo-1600563438938-a9a27216b4f5?w=800&q=85&fm=webp" alt="Project 2" loading="lazy">
+          <div class="info">
+            <h3>Minimal Cabin Retreat</h3>
+            <p>2023 — Kyoto outskirts</p>
+          </div>
+        </a>
+
+        <a href="#" class="project-card">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85&fm=webp" alt="Project 3" loading="lazy">
+          <div class="info">
+            <h3>Commercial Renovation</h3>
+            <p>2025 — Namba district</p>
+          </div>
+        </a>
+
+        <!-- 프로젝트 4~6개 더 넣으세요 -->
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p>프로젝트 문의 / 협업 제안 환영합니다.</p>
+      <p style="margin:1.5rem 0; font-size:1.2rem;">
+        <a href="mailto:daniel@example.com">daniel@example.com</a>
+      </p>
+      <div class="social">
+        <a href="#">Instagram</a> •
+        <a href="#">Behance</a> •
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Daniel Carter. All rights reserved.
+  </footer>
 
 </body>
 </html>
