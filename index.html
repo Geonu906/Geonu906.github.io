@@ -3,350 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김민준 건축가 | 소규모 단독주택 포트폴리오</title>
+    <title>Daniel Carter Architects | 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
         
         :root {
-            --primary: #2c3e50;
-            --accent: #e74c3c;
+            --primary: #e5c07b;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
         }
         
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-        
-        header {
-            background: rgba(44, 62, 80, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s;
-        }
-        
-        .logo {
+        .heading-font {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: white;
-            text-decoration: none;
+        }
+
+        .portfolio-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .portfolio-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
         }
         
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        .portfolio-img {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
-        nav a:hover {
-            color: #e74c3c;
-        }
-        
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a9c') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-        }
-        
-        section {
-            padding: 100px 5%;
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-        
-        .about {
-            background: white;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .project-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover img {
+        .portfolio-card:hover .portfolio-img {
             transform: scale(1.08);
         }
-        
-        .project-info {
-            padding: 25px;
-        }
-        
-        .project-info h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .project-meta {
-            font-size: 0.95rem;
-            color: #777;
-            margin-bottom: 15px;
-        }
-        
-        .project-info p {
-            color: #555;
-            font-size: 1.05rem;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 60px 5%;
-        }
-        
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            nav ul { gap: 1rem; font-size: 0.95rem; }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
         }
     </style>
 </head>
-<body>
-    <!-- 헤더 -->
-    <header>
-        <a href="#" class="logo">김민준 건축</a>
-        <nav>
-            <ul>
-                <li><a href="#about">소개</a></li>
-                <li><a href="#projects">프로젝트</a></li>
-                <li><a href="#contact">연락처</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- 히어로 -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>작은 집, 큰 이야기</h1>
-            <p>소규모 단독주택 전문 건축가 김민준의 포트폴리오</p>
-            <a href="#projects" class="btn">프로젝트 보기</a>
-        </div>
-    </section>
-
-    <!-- 소개 -->
-    <section id="about" class="about">
-        <h2>건축가 소개</h2>
-        <p style="font-size:1.2rem; max-width:700px; margin:0 auto;">
-            안녕하세요. 저는 김민준입니다.<br>
-            10년 이상 소규모 단독주택만을 전문으로 설계해 왔습니다.<br>
-            자연과 조화되고, 가족의 일상이 행복해지는 공간을 만드는 것이 제 철학입니다.<br><br>
-            모든 프로젝트는 100㎡ 내외의 작은 단독건물로, 실용성과 아름다움을 동시에 추구합니다.
-        </p>
-    </section>
-
-    <!-- 프로젝트 -->
-    <section id="projects">
-        <h2>대표 프로젝트</h2>
-        <div class="projects-grid">
-            
-            <!-- 프로젝트 1 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a9c" alt="현대 미니멀 주택">
-                <div class="project-info">
-                    <h3>현대 미니멀 주택</h3>
-                    <div class="project-meta">2023 • 서울 근교 • 85㎡</div>
-                    <p>깨끗한 직선과 대형 창호로 자연광을 최대화한 미니멀 단독주택. 가족이 함께하는 거실과 작은 정원이 조화됩니다.</p>
-                </div>
-            </div>
-
-            <!-- 프로젝트 2 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="코지 우든 코티지">
-                <div class="project-info">
-                    <h3>코지 우든 코티지</h3>
-                    <div class="project-meta">2022 • 제주 • 78㎡</div>
-                    <p>따뜻한 원목과 돌로 지은 아늑한 코티지. 제주 바람과 어우러지는 작은 단독주택으로, 휴식을 위한 완벽한 공간입니다.</p>
-                </div>
-            </div>
-
-            <!-- 프로젝트 3 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233" alt="에코 프렌들리 빌라">
-                <div class="project-info">
-                    <h3>에코 프렌들리 빌라</h3>
-                    <div class="project-meta">2024 • 부산 • 92㎡</div>
-                    <p>지속가능한 재료와 태양광 패널을 적용한 친환경 단독주택. 에너지 효율 1등급을 받은 작은 빌라입니다.</p>
-                </div>
-            </div>
-
-            <!-- 프로젝트 4 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde" alt="글래스 컨템포러리 하우스">
-                <div class="project-info">
-                    <h3>글래스 컨템포러리 하우스</h3>
-                    <div class="project-meta">2021 • 강원 • 88㎡</div>
-                    <p>투명한 유리벽으로 산과 호수를 그대로 담아낸 현대적 단독주택. 실내와 실외가 하나가 되는 설계입니다.</p>
-                </div>
-            </div>
-
-            <!-- 프로젝트 5 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="마운틴 캐빈">
-                <div class="project-info">
-                    <h3>마운틴 캐빈</h3>
-                    <div class="project-meta">2023 • 설악산 • 72㎡</div>
-                    <p>산속에 자연스럽게 녹아든 목조 캐빈 스타일 단독주택. 겨울 난방과 여름 통풍을 고려한 실용적 설계입니다.</p>
-                </div>
-            </div>
-
-            <!-- 프로젝트 6 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1605276373954-0a2f9c7c4b3a" alt="서브어반 가든 하우스">
-                <div class="project-info">
-                    <h3>서브어반 가든 하우스</h3>
-                    <div class="project-meta">2022 • 경기 • 95㎡</div>
-                    <p>넓은 정원과 함께한 가족 중심 단독주택. 아이들이 뛰어놀 수 있는 마당과 밝은 거실이 인상적입니다.</p>
+<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-amber-400 rounded-full flex items-center justify-center text-zinc-950 font-bold text-2xl">DC</div>
+                <div>
+                    <span class="heading-font text-2xl tracking-tight">Daniel Carter</span>
                 </div>
             </div>
             
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#home" class="hover:text-amber-400 transition">HOME</a>
+                <a href="#about" class="hover:text-amber-400 transition">ABOUT</a>
+                <a href="#portfolio" class="hover:text-amber-400 transition">PORTFOLIO</a>
+                <a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
+            </div>
+            
+            <a href="#contact" 
+               class="px-6 py-3 bg-white text-zinc-950 font-medium text-sm rounded-full hover:bg-amber-400 transition flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i>
+                문의하기
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero-bg h-screen flex items-center">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-block px-6 py-2 bg-white/10 backdrop-blur-md rounded-full text-amber-400 text-sm tracking-widest mb-6">
+                OSAKA BASED ARCHITECT
+            </div>
+            <h1 class="heading-font text-7xl md:text-8xl leading-none font-light tracking-tighter mb-6">
+                작은 단독주택,<br>큰 이야기
+            </h1>
+            <p class="max-w-md mx-auto text-xl text-zinc-300">
+                공간이 사람을 바꾼다는 믿음으로<br>작지만 특별한 단독주택 6채를 소개합니다.
+            </p>
+            <div class="mt-12 flex justify-center gap-4">
+                <a href="#portfolio" 
+                   class="px-10 py-5 bg-white text-zinc-950 rounded-full font-medium flex items-center gap-3 hover:bg-amber-400 transition text-lg">
+                    포트폴리오 보기
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-widest mb-2">SCROLL</div>
+            <i class="fa-solid fa-chevron-down animate-bounce text-2xl"></i>
         </div>
     </section>
 
-    <!-- 연락처 -->
-    <section id="contact" style="background:#2c3e50; color:white; text-align:center;">
-        <h2 style="color:white;">함께 집을 만들어 볼까요?</h2>
-        <p style="font-size:1.3rem; max-width:600px; margin:30px auto;">
-            새로운 단독주택 프로젝트를 계획 중이시라면 언제든 연락 주세요.<br>
-            상담은 무료입니다.
-        </p>
-        <div style="margin:40px 0;">
-            <a href="mailto:kimjun@architect.co.kr" style="color:#e74c3c; font-size:1.5rem; text-decoration:none;">kimjun@architect.co.kr</a>
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="uppercase text-amber-400 text-sm tracking-widest mb-3">Daniel Carter</div>
+                    <h2 class="heading-font text-6xl leading-none tracking-tighter mb-8">
+                        작지만<br>완벽한 집을<br>짓습니다
+                    </h2>
+                    <div class="prose prose-invert max-w-md text-zinc-300">
+                        <p class="text-lg">
+                            오사카를 기반으로 활동하는 건축가 Daniel Carter입니다. 
+                            10년간 작은 단독주택만을 설계해왔습니다. 
+                            최소한의 면적에서도 최대의 삶의 질을 만드는 것이 제 철학입니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="aspect-square bg-zinc-800 rounded-3xl overflow-hidden">
+                        <img src="https://picsum.photos/id/1016/800/800" 
+                             alt="Daniel Carter" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-zinc-950 p-8 rounded-3xl border border-white/10 max-w-xs">
+                        <div class="flex gap-8">
+                            <div>
+                                <div class="text-5xl font-light text-amber-400">6</div>
+                                <div class="text-sm text-zinc-400">PROJECTS</div>
+                            </div>
+                            <div>
+                                <div class="text-5xl font-light text-amber-400">85㎡</div>
+                                <div class="text-sm text-zinc-400">AVERAGE SIZE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p style="font-size:0.95rem; opacity:0.8;">서울시 강남구 테헤란로 123 • 010-1234-5678</p>
     </section>
 
-    <!-- 푸터 -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h3 style="font-family:'Playfair Display',serif; margin-bottom:15px;">김민준 건축</h3>
-                <p>소규모 단독주택 전문<br>2015년 설립</p>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <div class="text-amber-400 text-sm tracking-widest">SELECTED WORKS</div>
+                    <h2 class="heading-font text-6xl tracking-tighter">6개의 작은 단독주택</h2>
+                </div>
+                <a href="#" class="hidden md:flex items-center gap-2 text-sm group">
+                    ALL PROJECTS 
+                    <span class="w-8 h-px bg-white group-hover:w-12 transition"></span>
+                </a>
             </div>
-            <div>
-                <h4 style="margin-bottom:15px;">빠른 링크</h4>
-                <p><a href="#about" style="color:white; text-decoration:none;">소개</a></p>
-                <p><a href="#projects" style="color:white; text-decoration:none;">프로젝트</a></p>
-            </div>
-            <div>
-                <h4 style="margin-bottom:15px;">SNS</h4>
-                <p>Instagram @kimjun_arch</p>
-                <p>Behance @kimjun_arch</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/1015/800/600" 
+                             alt="미니멀 모던 주택"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2024</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">미니멀 모던 주택</h3>
+                                <p class="text-zinc-400 text-sm mt-1">오사카 · 78㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">MODERN</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            콘크리트와 유리의 조화. 빛이 가득한 2층 단독주택. 
+                            좁은 대지에서도 넓은 느낌을 주는 설계.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/133/800/600" 
+                             alt="우드 코티지"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2023</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">우드 코티지</h3>
+                                <p class="text-zinc-400 text-sm mt-1">교토 근교 · 65㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">RUSTIC</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            자연 그대로의 목재로 지은 아늑한 코티지. 
+                            주변 숲과 하나가 되는 작은 단독주택.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/160/800/600" 
+                             alt="컨템포러리 글라스 하우스"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2025</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">컨템포러리 글라스 하우스</h3>
+                                <p class="text-zinc-400 text-sm mt-1">오사카 · 92㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">CONTEMPORARY</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            전면 유리창으로 주변 풍경을 끌어들이는 현대식 주택. 
+                            낮에는 빛, 밤에는 별이 함께하는 공간.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/201/800/600" 
+                             alt="트래디셔널 가든 하우스"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2022</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">트래디셔널 가든 하우스</h3>
+                                <p class="text-zinc-400 text-sm mt-1">나고야 · 82㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">TRADITIONAL</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            일본 전통 기와 지붕과 현대적 평면의 조화. 
+                            작은 정원이 있는 가족형 단독주택.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/251/800/600" 
+                             alt="에코 서스테이너블 홈"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2024</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">에코 서스테이너블 홈</h3>
+                                <p class="text-zinc-400 text-sm mt-1">고베 · 70㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">ECO</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            태양광 패널과 빗물 재활용 시스템이 적용된 
+                            탄소 중립 작은 단독주택.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/318/800/600" 
+                             alt="럭셔리 컴팩트 빌라"
+                             class="portfolio-img w-full h-72 object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2023</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl heading-font font-medium">럭셔리 컴팩트 빌라</h3>
+                                <p class="text-zinc-400 text-sm mt-1">오사카 · 88㎡</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-amber-400 text-xs">LUXURY</span>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
+                            고급 마감재와 프라이빗 테라스가 있는 
+                            작지만 품격 있는 단독 빌라.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <p style="margin-top:60px; opacity:0.6; font-size:0.9rem;">© 2026 김민준 건축가. All Rights Reserved.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-black py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-6xl tracking-tighter mb-6">함께 집을 만들까요?</h2>
+            <p class="text-zinc-400 text-lg mb-12">
+                새로운 프로젝트 문의나 협업 제안은 언제든 환영합니다.
+            </p>
+            
+            <div class="bg-zinc-900 rounded-3xl p-10 max-w-md mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="이름" 
+                               class="w-full bg-transparent border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="이메일" 
+                               class="w-full bg-transparent border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <textarea placeholder="프로젝트 설명" rows="5"
+                                  class="w-full bg-transparent border border-white/20 rounded-3xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500 resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full py-6 bg-amber-400 hover:bg-amber-300 transition text-zinc-950 font-medium rounded-2xl text-lg">
+                        보내기
+                    </button>
+                </form>
+            </div>
+            
+            <div class="mt-16 text-xs text-zinc-500">
+                daniel.carter@architect.jp<br>
+                오사카시 키타구
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-500">
+            <div>© 2026 Daniel Carter Architects. All Rights Reserved.</div>
+            <div class="flex gap-6 mt-6 md:mt-0">
+                <a href="#" class="hover:text-white transition">Instagram</a>
+                <a href="#" class="hover:text-white transition">Pinterest</a>
+                <a href="#" class="hover:text-white transition">Behance</a>
+            </div>
+            <div class="mt-6 md:mt-0">Made with ❤️ for beautiful small homes</div>
+        </div>
     </footer>
 
     <script>
-        // 간단한 스크롤 효과
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(44, 62, 80, 0.98)';
-                header.style.padding = '0.8rem 5%';
-            } else {
-                header.style.background = 'rgba(44, 62, 80, 0.95)';
-                header.style.padding = '1rem 5%';
-            }
-        });
+        // Tailwind script init
+        function initializeTailwind() {
+            console.log('%c✅ 포트폴리오 사이트가 준비되었습니다!', 'color:#e5c07b; font-family:monospace');
+        }
+        window.onload = initializeTailwind;
     </script>
 </body>
 </html>
