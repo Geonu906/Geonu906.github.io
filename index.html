@@ -3,133 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>준호 박 | 건축가 포트폴리오</title>
+    <title>이준호 건축 | 작은 단독주택 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hero { font-family: 'Playfair Display', serif; }
-        .project-img { transition: all 0.4s ease; }
-        .project-img:hover { transform: scale(1.05); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
+        :root {
+            --accent: #14b8a6;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        
+        .project-img {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.12);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://picsum.photos/id/1015/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="tail-container bg-zinc-950 text-white">
     <!-- NAV -->
-    <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md z-50 border-b border-zinc-800">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-widest">JUNHO PARK</h1>
-            <div class="flex gap-8 text-sm font-medium">
-                <a href="#projects" class="hover:text-amber-400 transition">프로젝트</a>
-                <a href="#about" class="hover:text-amber-400 transition">소개</a>
-                <a href="#contact" class="hover:text-amber-400 transition">연락처</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-teal-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl logo-font">JH</div>
+                <div>
+                    <span class="logo-font text-3xl tracking-tighter">이준호</span>
+                    <span class="text-teal-400 text-sm font-medium tracking-widest block -mt-1">ARCHITECT</span>
+                </div>
             </div>
+            
+            <ul class="flex gap-8 text-sm font-medium">
+                <li><a href="#home" class="hover:text-teal-400 transition">HOME</a></li>
+                <li><a href="#about" class="hover:text-teal-400 transition">ABOUT</a></li>
+                <li><a href="#projects" class="hover:text-teal-400 transition">PROJECTS</a></li>
+                <li><a href="#contact" class="hover:text-teal-400 transition">CONTACT</a></li>
+            </ul>
+            
+            <a href="#" 
+               class="px-6 py-3 bg-white text-zinc-950 font-medium rounded-3xl hover:bg-teal-400 hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-download"></i>
+                CV 다운로드
+            </a>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="h-screen bg-zinc-900 flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-30"></div>
-        <div class="relative text-center px-6 max-w-3xl">
-            <h2 class="hero text-7xl font-bold tracking-tighter mb-6 leading-none">공간에<br>영감을 불어넣다</h2>
-            <p class="text-xl text-zinc-400 mb-10">준호 박 건축가의 포트폴리오</p>
-            <a href="#projects" class="inline-block bg-white text-black px-10 py-4 rounded-full font-semibold hover:bg-amber-400 transition">프로젝트 보기 ↓</a>
+    <section id="home" class="hero-bg h-screen flex items-center justify-center relative">
+        <div class="max-w-4xl text-center px-6">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm mb-8">
+                <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
+                SEOUL BASED ARCHITECT
+            </div>
+            <h1 class="text-7xl md:text-8xl font-bold logo-font leading-none tracking-tighter mb-4">
+                작은 단독주택,<br>
+                <span class="text-teal-400">큰 이야기</span>
+            </h1>
+            <p class="text-xl text-zinc-300 max-w-md mx-auto">
+                지속가능성과 미니멀리즘을 추구하는<br>건축가 이준호의 포트폴리오
+            </p>
+            <a href="#projects" 
+               class="mt-12 inline-flex items-center gap-3 px-10 py-5 bg-teal-500 hover:bg-teal-400 transition rounded-3xl text-lg font-medium">
+                프로젝트 보기
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
         </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="py-24 bg-zinc-950">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">대표 프로젝트</h2>
-
-            <!-- 프로젝트 1 -->
-            <div class="mb-32">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <h3 class="text-4xl font-semibold mb-3">산속 하모니 빌라</h3>
-                        <p class="text-zinc-400 text-lg leading-relaxed">자연과 하나 되는 지속 가능한 산악 레지던스. 대형 유리와 목재로 주변 경관을 그대로 품었습니다.</p>
-                        <div class="mt-8 text-sm uppercase tracking-widest text-amber-400">2024 • 강원도</div>
-                    </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">외관</p>
-                            <img src="https://thumbs.dreamstime.com/b/glass-cabin-mountaintop-scenic-sunset-views-offering-unique-escape-connecting-nature-minimalist-style-atop-rocky-361711678.jpg" 
-                                 alt="산속 하모니 빌라 외관" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">인테리어</p>
-                            <img src="https://thumbs.dreamstime.com/b/luxury-mountain-chalet-interior-fireplace-scenic-views-382455787.jpg" 
-                                 alt="산속 하모니 빌라 인테리어" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 프로젝트 2 -->
-            <div class="mb-32">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <h3 class="text-4xl font-semibold mb-3">도시의 오아시스 타워</h3>
-                        <p class="text-zinc-400 text-lg leading-relaxed">미래를 담은 고층 사무 빌딩. 곡선 유리 파사드로 도시의 에너지를 반사합니다.</p>
-                        <div class="mt-8 text-sm uppercase tracking-widest text-amber-400">2025 • 서울</div>
-                    </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">외관</p>
-                            <img src="https://thumbs.dreamstime.com/b/modern-glass-skyscrapers-city-twilight-image-showcases-group-curved-facade-setting-dusk-buildings-398079390.jpg" 
-                                 alt="도시의 오아시스 타워 외관" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">인테리어</p>
-                            <img src="https://images.stockcake.com/public/c/d/5/cd54bf17-7453-4e8b-a484-c0480cb2b10c/modern-office-view-stockcake.jpg" 
-                                 alt="도시의 오아시스 타워 인테리어" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 프로젝트 3 -->
-            <div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <h3 class="text-4xl font-semibold mb-3">바다의 메아리 주택</h3>
-                        <p class="text-zinc-400 text-lg leading-relaxed">친환경 해변 주택. 바다와 하나 되는 테라스와 자연 소재로 설계되었습니다.</p>
-                        <div class="mt-8 text-sm uppercase tracking-widest text-amber-400">2024 • 제주</div>
-                    </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">외관</p>
-                            <img src="https://robbreport.com/wp-content/uploads/2024/05/16056_00_N51_high300.jpg" 
-                                 alt="바다의 메아리 주택 외관" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-widest mb-3 text-zinc-500">인테리어</p>
-                            <img src="https://www.thespruce.com/thmb/SYwxi0nKE3n8ZuOyLc6NhuDQgLo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/210915-CKI_BeachFront_25249-1848dc59ee014a8b9333d4570d136bd4.jpg" 
-                                 alt="바다의 메아리 주택 인테리어" class="project-img w-full h-auto rounded-2xl">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
+            <span class="animate-bounce">SCROLL</span>
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-24 bg-zinc-900">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">준호 박 건축가</h2>
-            <p class="text-zinc-400 text-lg">자연과 도시, 지속가능성과 혁신을 조화롭게 연결하는 공간을 디자인합니다. 10년 이상의 경험으로 클라이언트의 꿈을 현실로 만듭니다.</p>
+    <section id="about" class="py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <img src="https://picsum.photos/id/64/800/900" 
+                     alt="이준호 건축가" 
+                     class="w-full rounded-3xl shadow-2xl">
+            </div>
+            <div class="space-y-8">
+                <div class="inline-block px-5 py-2 bg-zinc-800 rounded-3xl text-teal-400 text-sm font-medium">SINCE 2018</div>
+                <h2 class="text-6xl font-bold logo-font leading-none">안녕하세요,<br>이준호입니다.</h2>
+                <div class="max-w-lg text-zinc-400 text-lg leading-relaxed">
+                    작은 단독주택에 집중하며, 공간이 사람의 삶을 어떻게 풍요롭게 하는지를 탐구합니다. 
+                    자연, 빛, 재료의 본질을 존중하는 미니멀한 접근으로 6개의 특별한 주택을 완성했습니다.
+                </div>
+                <div class="grid grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-4xl font-bold text-teal-400">42</div>
+                        <div class="text-xs text-zinc-500 mt-1">PROJECTS</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-teal-400">18</div>
+                        <div class="text-xs text-zinc-500 mt-1">COUNTRIES</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-teal-400">6</div>
+                        <div class="text-xs text-zinc-500 mt-1">AWARDS</div>
+                    </div>
+                </div>
+                <a href="#" class="flex items-center gap-4 group">
+                    <div class="w-12 h-px bg-zinc-700 group-hover:bg-teal-400 transition"></div>
+                    <span class="uppercase text-sm tracking-widest">더 알아보기</span>
+                </a>
+            </div>
         </div>
     </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-28 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-teal-400 text-sm font-medium tracking-widest">SELECTED WORKS</span>
+                    <h2 class="text-6xl font-bold logo-font">작은 단독주택 프로젝트</h2>
+                </div>
+                <a href="#" class="text-sm flex items-center gap-2 hover:text-teal-400 transition">
+                    ALL PROJECTS 
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- 프로젝트 카드들은 JS로 동적으로 생성 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="project-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[999] flex items-center justify-center p-6">
+        <div class="modal bg-zinc-900 max-w-4xl w-full rounded-3xl overflow-hidden">
+            <!-- modal content will be injected by JS -->
+        </div>
+    </div>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-24 bg-zinc-950">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">함께 공간을 만들어요</h2>
-            <a href="mailto:junho@parkarchitect.com" class="inline-block bg-amber-400 text-black px-12 py-5 rounded-full font-semibold text-lg hover:bg-white transition">junho@parkarchitect.com</a>
+    <section id="contact" class="py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-6xl font-bold logo-font mb-6">함께 만들어요</h2>
+                <p class="text-zinc-400 max-w-md">
+                    새로운 작은 단독주택 프로젝트를 함께하고 싶으신가요?<br>
+                    언제든 연락 주세요.
+                </p>
+                <div class="mt-16 space-y-6">
+                    <div class="flex gap-6">
+                        <i class="fa-solid fa-envelope text-3xl text-teal-400"></i>
+                        <div>
+                            <div class="text-sm text-zinc-500">EMAIL</div>
+                            <a href="mailto:joonho@architect.kr" class="text-lg hover:text-teal-400">joonho@architect.kr</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fa-solid fa-phone text-3xl text-teal-400"></i>
+                        <div>
+                            <div class="text-sm text-zinc-500">PHONE</div>
+                            <a href="tel:010-1234-5678" class="text-lg hover:text-teal-400">010-1234-5678</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fa-solid fa-location-dot text-3xl text-teal-400"></i>
+                        <div>
+                            <div class="text-sm text-zinc-500">STUDIO</div>
+                            <div class="text-lg">서울시 성동구 서울숲로 123</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="space-y-8">
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-400 mb-2">이름</label>
+                        <input type="text" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-5 focus:border-teal-400 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-400 mb-2">이메일</label>
+                        <input type="email" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-5 focus:border-teal-400 outline-none transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-zinc-400 mb-2">프로젝트 문의</label>
+                    <textarea class="w-full h-48 bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-5 focus:border-teal-400 outline-none transition resize-none"></textarea>
+                </div>
+                <button type="button" 
+                        onclick="alert('문의가 접수되었습니다! (데모)')"
+                        class="w-full py-6 bg-white text-zinc-950 font-medium rounded-3xl hover:bg-teal-400 hover:text-white transition text-lg">
+                    문의 보내기
+                </button>
+            </form>
         </div>
     </section>
 
-    <footer class="py-8 text-center text-zinc-500 text-sm border-t border-zinc-800">
-        © 2026 Junho Park Architect. All rights reserved.
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 text-center text-xs text-zinc-500">
+            © 2026 이준호 건축. All rights reserved.<br>
+            Made with ❤️ for beautiful small homes
+        </div>
     </footer>
+
+    <script>
+        // Tailwind script already loaded via CDN
+        function initializeTailwind() {
+            // nothing extra needed
+        }
+
+        // 프로젝트 데이터 (6개 작은 단독주택)
+        const projects = [
+            {
+                id: 1,
+                title: "모던 미니멀 하우스",
+                location: "경기도 남양주",
+                year: "2024",
+                area: "85㎡",
+                img: "https://picsum.photos/id/160/800/600",
+                desc: "깨끗한 선과 거대한 창호로 자연을 끌어들인 1층 단독주택. 빛과 그림자가 만드는 공간 경험을 극대화했습니다.",
+                detail: "콘크리트와 유리로 이루어진 미니멀한 외관. 내부는 단일 공간으로 이루어져 가족의 일상이 유연하게 흐릅니다. 지속가능한 자재와 스마트 홈 시스템 적용."
+            },
+            {
+                id: 2,
+                title: "우든 코티지",
+                location: "제주도 애월",
+                year: "2023",
+                area: "72㎡",
+                img: "https://picsum.photos/id/201/800/600",
+                desc: "제주의 바람과 어우러진 따뜻한 목조 주택. 지역 목재를 활용한 친환경 단독건물입니다.",
+                detail: "전통과 현대를 넘나드는 디자인. 거실에서 보이는 한라산 전망과 함께, 작은 마당이 가족의 휴식을 완성합니다."
+            },
+            {
+                id: 3,
+                title: "글래스 레지던스",
+                location: "부산 해운대",
+                year: "2025",
+                area: "92㎡",
+                img: "https://picsum.photos/id/251/800/600",
+                desc: "바다를 품은 투명한 유리 박스. 낮과 밤의 풍경이 내부와 하나가 되는 단독주택.",
+                detail: "구조적 강도를 유지하면서 최대한의 개방감을 준 설계. 밤에는 내부 조명이 바다를 비추는 랜드마크가 됩니다."
+            },
+            {
+                id: 4,
+                title: "에코 그린 홈",
+                location: "강원도 평창",
+                year: "2024",
+                area: "78㎡",
+                img: "https://picsum.photos/id/318/800/600",
+                desc: "지붕 전체를 녹지로 채운 지속가능 단독주택. 태양광과 지열을 활용한 제로 에너지 주택.",
+                detail: "친환경 자재 100% 사용. 빗물을 재활용하는 시스템과 함께, 작은 온실이 가족의 식탁을 책임집니다."
+            },
+            {
+                id: 5,
+                title: "퓨처리스틱 빌라",
+                location: "인천 송도",
+                year: "2023",
+                area: "88㎡",
+                img: "https://picsum.photos/id/133/800/600",
+                desc: "곡선과 빛이 만드는 미래형 단독주택. 드론 착륙장과 스마트 월을 갖춘 혁신적 설계.",
+                detail: "파라메트릭 디자인으로 제작된 외벽. 내부는 AI 조명과 음향 시스템이 일상을 업그레이드합니다."
+            },
+            {
+                id: 6,
+                title: "코스탈 드림 하우스",
+                location: "강릉 정동진",
+                year: "2025",
+                area: "68㎡",
+                img: "https://picsum.photos/id/29/800/600",
+                desc: "파도 소리가 들리는 해변 단독주택. 목재 데크와 무한대 풀을 품은 작은 빌라.",
+                detail: "바다를 향한 모든 창문. 일몰을 감상할 수 있는 2층 테라스가 가족의 가장 사랑받는 공간입니다."
+            }
+        ];
+
+        // 카드 생성
+        function renderProjects() {
+            const container = document.getElementById('projects-grid');
+            container.innerHTML = '';
+            
+            projects.forEach(project => {
+                const cardHTML = `
+                    <div onclick="openModal(${project.id})" class="project-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer">
+                        <div class="relative">
+                            <img src="${project.img}" 
+                                 alt="${project.title}" 
+                                 class="project-img w-full h-80 object-cover">
+                            <div class="absolute top-6 right-6 bg-black/70 text-xs px-4 py-2 rounded-3xl backdrop-blur">
+                                ${project.year}
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-semibold">${project.title}</h3>
+                                    <p class="text-teal-400 text-sm">${project.location}</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs bg-zinc-800 px-3 py-1 rounded-2xl">${project.area}</span>
+                                </div>
+                            </div>
+                            <p class="text-zinc-400 line-clamp-3">${project.desc}</p>
+                            <div class="mt-8 flex items-center justify-between text-xs font-medium">
+                                <span class="flex items-center gap-2 text-teal-400">
+                                    <i class="fa-solid fa-eye"></i>
+                                    자세히 보기
+                                </span>
+                                <i class="fa-solid fa-arrow-right text-zinc-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // 모달 열기
+        let currentProject = null;
+        
+        function openModal(id) {
+            currentProject = projects.find(p => p.id === id);
+            if (!currentProject) return;
+            
+            const modal = document.getElementById('project-modal');
+            const content = modal.querySelector('div');
+            
+            content.innerHTML = `
+                <div class="relative">
+                    <!-- 닫기 버튼 -->
+                    <button onclick="closeModal()" 
+                            class="absolute top-6 right-6 z-10 w-10 h-10 bg-black/70 hover:bg-red-500 transition rounded-2xl flex items-center justify-center text-white">
+                        ✕
+                    </button>
+                    
+                    <img src="${currentProject.img}" 
+                         class="w-full h-96 object-cover" alt="${currentProject.title}">
+                    
+                    <div class="p-10">
+                        <div class="flex gap-4 mb-6">
+                            <span class="bg-zinc-800 text-teal-400 px-5 py-2 rounded-3xl text-sm">${currentProject.year}</span>
+                            <span class="bg-zinc-800 px-5 py-2 rounded-3xl text-sm">${currentProject.area}</span>
+                            <span class="bg-zinc-800 px-5 py-2 rounded-3xl text-sm">${currentProject.location}</span>
+                        </div>
+                        
+                        <h2 class="text-5xl font-bold logo-font mb-4">${currentProject.title}</h2>
+                        <p class="text-xl text-zinc-300 leading-relaxed">${currentProject.detail}</p>
+                        
+                        <div class="mt-12 pt-8 border-t border-zinc-700 flex justify-end">
+                            <button onclick="closeModal()" 
+                                    class="px-10 py-5 bg-white text-zinc-950 rounded-3xl font-medium hover:bg-teal-400 hover:text-white transition">
+                                갤러리로 돌아가기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // 초기화
+        window.onload = function() {
+            renderProjects();
+            initializeTailwind();
+            
+            // Tailwind 스크립트 로드 후 클래스 적용 보장
+            console.log('%c✅ 건축가 포트폴리오 사이트가 성공적으로 로드되었습니다!', 'color:#14b8a6; font-family:monospace');
+        };
+    </script>
 </body>
 </html>
