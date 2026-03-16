@@ -46,26 +46,29 @@
 <body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
     <!-- NAV -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center">
             <!-- <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-amber-400 rounded-full flex items-center justify-center text-zinc-950 font-bold text-2xl">DC</div>
                 <div>
                     <span class="heading-font text-2xl tracking-tight">Daniel Carter</span>
                 </div>
             </div> -->
+            <div class="flex-1 hidden md:block"></div>
             
-            <div class="hidden md:flex flex-1 justify-center items-center gap-10 text-sm font-medium">
+            <div class="hidden md:flex items-center justify-center gap-10 text-sm font-medium">
                 <a href="#home" class="hover:text-amber-400 transition">HOME</a>
                 <!-- <a href="#about" class="hover:text-amber-400 transition">ABOUT</a> -->
                 <a href="#portfolio" class="hover:text-amber-400 transition">PORTFOLIO</a>
                 <a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
             </div>
-            
+
+            <div class="flex-1 flex justify-end">
             <a href="#contact" 
                class="px-6 py-3 bg-white text-zinc-950 font-medium text-sm rounded-full hover:bg-amber-400 transition flex-shrink-0 items-center gap-2">
                 <i class="fa-solid fa-envelope"></i>
                 문의하기
             </a>
+            </div>
         </div>
     </nav>
 
