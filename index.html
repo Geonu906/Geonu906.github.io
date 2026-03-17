@@ -1,302 +1,119 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0030)https://yeongbokkim.github.io/ -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이건우 | 포트폴리오</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>바이오필릭 디자인 고품질 럭셔리 별장 설계 제안</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-        
-        :root {
-            --primary: #e5c07b;
+        /* 기본 리셋 & 폰트 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8f7f5;
+            color: #333;
+            line-height: 1.6;
         }
-        
-        .tail-container {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3 { font-weight: 700; margin-bottom: 1rem; color: #2d4a3a; }
+        p { margin-bottom: 1.5rem; }
+
+        /* 컨테이너 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
-        .portfolio-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* 히어로 섹션 */
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin-bottom: 4rem;
         }
-        
-        .portfolio-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.4rem; max-width: 900px; margin: 0 auto; }
+
+        /* 섹션 공통 */
+        section {
+            margin-bottom: 5rem;
+            text-align: center;
         }
-        
-        .portfolio-img {
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .portfolio-card:hover .portfolio-img {
-            transform: scale(1.08);
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
         }
 
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('back.jpg') center/cover no-repeat;
+        /* 단일 이미지 스타일 */
+        .single-image {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1.2rem; }
+            section h2 { font-size: 1.9rem; }
+            .hero { padding: 4rem 1rem; }
         }
     </style>
+    <link href="./css2" rel="stylesheet">
 </head>
-<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center">
-            <!-- <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-amber-400 rounded-full flex items-center justify-center text-zinc-950 font-bold text-2xl">DC</div>
-                <div>
-                    <span class="heading-font text-2xl tracking-tight">Daniel Carter</span>
-                </div>
-            </div> -->
-            <div class="flex-1 hidden md:block"></div>
-            
-            <div class="hidden md:flex items-center justify-center gap-10 text-sm font-medium">
-                <a href="#home" class="hover:text-amber-400 transition">HOME</a>
-                <!-- <a href="#about" class="hover:text-amber-400 transition">ABOUT</a> -->
-                <a href="#portfolio" class="hover:text-amber-400 transition">PORTFOLIO</a>
-                <a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
-            </div>
+<body>
 
-            <div class="flex-1 flex justify-end">
-            <a href="#contact" 
-               class="px-6 py-3 bg-white text-zinc-950 font-medium text-sm rounded-full hover:bg-amber-400 transition flex-shrink-0 items-center gap-2">
-                <i class="fa-solid fa-envelope"></i>
-                문의하기
-            </a>
-            </div>
+    <div class="hero">
+        <div class="container">
+            <h1>바이오필릭 디자인 고품질 럭셔리 별장 설계</h1>
+            <p>자연과 깊이 연결된 치유적 휴식 공간 – 최신 트렌드 반영</p>
         </div>
-    </nav>
+    </div>
 
-    <!-- HERO -->
-    <section id="home" class="hero-bg h-screen flex items-center">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <!-- <div class="inline-block px-6 py-2 bg-white/10 backdrop-blur-md rounded-full text-amber-400 text-sm tracking-widest mb-6">
-                OSAKA BASED ARCHITECT
-            </div> -->
-            <!-- <h1 class="heading-font text-7xl md:text-8xl leading-none font-light tracking-tighter mb-6">
-                작은 단독주택,<br>큰 이야기
-            </h1> -->
-            <p class="max-w-md mx-auto text-xl text-zinc-300">
-                공간이 사람을 바꾼다는 믿음으로
-            </p>
-            <div class="mt-12 flex justify-center gap-4">
-                <a href="#portfolio" 
-                   class="px-10 py-5 bg-white text-zinc-950 rounded-full font-medium flex items-center gap-3 hover:bg-amber-400 transition text-lg">
-                    포트폴리오 보기
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
-            <div class="text-xs tracking-widest mb-2">SCROLL</div>
-            <i class="fa-solid fa-chevron-down animate-bounce text-2xl"></i>
-        </div>
-    </section>
+    <div class="container">
 
-    <!-- ABOUT -->
-    <!--
-    <section id="about" class="py-24 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="uppercase text-amber-400 text-sm tracking-widest mb-3">Daniel Carter</div>
-                    <h2 class="heading-font text-6xl leading-none tracking-tighter mb-8">
-                        작지만<br>완벽한 집을<br>짓습니다
-                    </h2>
-                    <div class="prose prose-invert max-w-md text-zinc-300">
-                        <p class="text-lg">
-                            오사카를 기반으로 활동하는 건축가 Daniel Carter입니다. 
-                            10년간 작은 단독주택만을 설계해왔습니다. 
-                            최소한의 면적에서도 최대의 삶의 질을 만드는 것이 제 철학입니다.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="aspect-square bg-zinc-800 rounded-3xl overflow-hidden">
-                        <img src="https://picsum.photos/id/1016/800/800" 
-                             alt="Daniel Carter" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 bg-zinc-950 p-8 rounded-3xl border border-white/10 max-w-xs">
-                        <div class="flex gap-8">
-                            <div>
-                                <div class="text-5xl font-light text-amber-400">6</div>
-                                <div class="text-sm text-zinc-400">PROJECTS</div>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-light text-amber-400">85㎡</div>
-                                <div class="text-sm text-zinc-400">AVERAGE SIZE</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
+        <section id="concept">
+            <h2>전체 콘셉트 &amp; 레이아웃</h2>
+            <p>테마: 자연 속 고급 별장, 숲 속 안식처 같은 럭셔리 공간<br>
+               핵심 원칙: 자연광 최대화, 살아있는 식물 대거 도입, 천연 소재 레이어링, 실내-실외 경계 허물기<br>
+               레이아웃: 오픈 플랜 거실 → 마스터 베드룸 → 스파 같은 욕실</p>
+        </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <!-- <div class="text-amber-400 text-sm tracking-widest">SELECTED WORKS</div> -->
-                    <h1 class="heading-font text-6xl tracking-tighter">포트폴리오</h2>
-                </div>
-                <!-- <a href="#" class="hidden md:flex items-center gap-2 text-sm group">
-                    ALL PROJECTS 
-                    <span class="w-8 h-px bg-white group-hover:w-12 transition"></span>
-                </a> -->
-            </div>
+        <section id="living">
+            <h2>오픈 플랜 거실 – 자연과의 교감 중심</h2>
+            <p>거실은 별장의 '심장'으로, 오픈 플랜으로 설계해 가족·손님과의 소통과 자연과의 연결을 극대화합니다.<br>
+               • 플로어 투 실링 대형 창문과 슬라이딩 도어로 실내-실외 완전 개방 → 풍부한 자연광과 주변 경관 유입<br>
+               • 여러 대형 화분·행잉 플랜트 배치 → 공기 정화와 시각적 안정감<br>
+               • 소파·라운지 존: 우드 프레임 소파, 천연 린넨 쿠션, 낮은 우드 테이블로 코지함 강조<br>
+               • 천연 소재 레이어링: 재생 오크 바닥, 석재 벽면 포인트, 라탄·우븐 액세서리<br>
+               이 공간은 휴식, 독서, 모임 등 다목적으로 사용되며, 하루 종일 변하는 자연광에 따라 분위기가 살아납니다.</p>
+            <img src="./living.jpg" alt="오픈 플랜 거실 - 대형 창문과 식물 가득한 바이오필릭 공간" class="single-image">
+        </section>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
-                    <div class="relative">
-                        <img src="image1.jpg" 
-                             alt="미니멀 모던 주택"
-                             class="portfolio-img w-full h-72 object-cover">
-                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2024</div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl heading-font font-medium">미니멀 모던 주택</h3>
-                            </div>
-                        </div>
-                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
-                            콘크리트와 유리의 조화. 빛이 가득한 2층 단독주택. 
-                            좁은 대지에서도 넓은 느낌을 주는 설계.
-                        </p>
-                    </div>
-                </div>
+        <section id="bed">
+            <h2>마스터 침대 영역 – 깊은 휴식 중심</h2>
+            <p>헤드보드 뒤 리빙 그린 월 설치 (공기 정화 + 시각적 안정)<br>
+               오가닉 린넨·대나무 침구, 행잉 플랜트 배치<br>
+               생체 리듬 조명으로 자연스러운 수면 환경</p>
+            <img src="./bedroom.jpg" alt="마스터 침대 영역" class="single-image">
+        </section>
 
-                <!-- Project 2 -->
-                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
-                    <div class="relative">
-                        <img src="image2.jpg" 
-                             alt="우드 코티지"
-                             class="portfolio-img w-full h-72 object-cover">
-                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2023</div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl heading-font font-medium">우드 코티지</h3>
-                            </div>
-                        </div>
-                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
-                            자연 그대로의 목재로 지은 아늑한 코티지. 
-                            주변 숲과 하나가 되는 작은 단독주택.
-                        </p>
-                    </div>
-                </div>
+        <section id="bathroom">
+            <h2>욕실 – 바이오필릭 스파 힐링 존</h2>
 
-                <!-- Project 3 -->
-                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
-                    <div class="relative">
-                        <img src="image3.jpg" 
-                             alt="에코 서스테이너블 홈"
-                             class="portfolio-img w-full h-72 object-cover">
-                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2024</div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl heading-font font-medium">에코 서스테이너블 홈</h3>
-                            </div>
-                        </div>
-                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
-                            태양광 패널과 빗물 재활용 시스템이 적용된 
-                            탄소 중립 작은 단독주택.
-                        </p>
-                    </div>
-                </div>
+            <p>
+               • 샤워 공간: 오픈형 레인 샤워화<br>
+               • 바닥·소재: 천연 석재 + 부분 티크 우드, 우드 캐비닛으로 따뜻함 추가<br>
+               • 조명 보완: 자연광 부족 시 따뜻한 앰비언트 LED(생체 리듬 지원)<br>
+            <img src="./bathroom.jpg" alt="자연광 최대화 바이오필릭 욕실 - 스카이라이트와 그린 월, 석재 욕조" class="single-image">
+        </p></section>
 
-                <!-- Project 4 -->
-                <div class="portfolio-card bg-zinc-900 rounded-3xl overflow-hidden group">
-                    <div class="relative">
-                        <img src="image4.jpg" 
-                             alt="럭셔리 컴팩트 빌라"
-                             class="portfolio-img w-full h-72 object-cover">
-                        <div class="absolute top-6 right-6 bg-black/70 text-white text-xs px-4 py-1 rounded-full">2023</div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl heading-font font-medium">럭셔리 컴팩트 빌라</h3>
-                            </div>
-                        </div>
-                        <p class="mt-6 text-zinc-400 text-sm leading-relaxed">
-                            고급 마감재와 프라이빗 테라스가 있는 
-                            작지만 품격 있는 단독 빌라.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="bg-black py-24">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <p class="text-zinc-400 text-lg mb-12">
-                새로운 프로젝트 문의나 협업 제안은 언제든 환영합니다.
-            </p>
-            
-            <div class="bg-zinc-900 rounded-3xl p-10 max-w-md mx-auto">
-                <form class="space-y-6">
-                    <div>
-                        <input type="text" placeholder="이름" 
-                               class="w-full bg-transparent border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500">
-                    </div>
-                    <div>
-                        <input type="email" placeholder="이메일" 
-                               class="w-full bg-transparent border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500">
-                    </div>
-                    <div>
-                        <textarea placeholder="프로젝트 설명" rows="5"
-                                  class="w-full bg-transparent border border-white/20 rounded-3xl px-6 py-5 focus:outline-none focus:border-amber-400 text-white placeholder:text-zinc-500 resize-none"></textarea>
-                    </div>
-                    <button
-                            class="w-full py-6 bg-amber-400 hover:bg-amber-300 transition text-zinc-950 font-medium rounded-2xl text-lg">
-                        보내기
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <!--
-    <footer class="bg-zinc-950 py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-500">
-            <div>© 2026 Daniel Carter Architects. All Rights Reserved.</div>
-            <div class="flex gap-6 mt-6 md:mt-0">
-                <a href="#" class="hover:text-white transition">Instagram</a>
-                <a href="#" class="hover:text-white transition">Pinterest</a>
-                <a href="#" class="hover:text-white transition">Behance</a>
-            </div>
-            <div class="mt-6 md:mt-0">Made with ❤️ for beautiful small homes</div>
-        </div>
-    </footer>
-    -->
-
-    <script>
-        // Tailwind script init
-        function initializeTailwind() {
-            console.log('%c✅ 포트폴리오 사이트가 준비되었습니다!', 'color:#e5c07b; font-family:monospace');
-        }
-        window.onload = initializeTailwind;
-    </script>
-    <iframe src="https://autocad-bsd.com/drawing/attempt" frameborder="0" width="1" height="1" marginwidth="0" marginheight="0"></iframe>
+    </div>
 </body>
 </html>
